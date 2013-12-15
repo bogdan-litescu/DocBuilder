@@ -1,0 +1,12 @@
+﻿@model SitemapEntry
+
+<ul>
+    @foreach (var entry in Model.Children) {
+        <li>
+            <a href="@entry.Url">@entry.Name</a>
+            @if (Model.Children.Count > 0) {
+                @Html.Partial("_PageMenu", @entry)
+            }
+        </li>
+    }
+</ul>

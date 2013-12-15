@@ -18,6 +18,18 @@ namespace DocBuilder.Web
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            // sites
+            routes.MapRoute(
+                name: "ShowPage",
+                url: "docs/{ownerId}/{siteId}/{versionId}/{*pagePath}",
+                defaults: new { 
+                    controller = "Docs", 
+                    action = "ShowPage",
+                    pagePath = UrlParameter.Optional
+                }
+            );
+
         }
     }
 }
